@@ -34,7 +34,7 @@ st.markdown("""
 st.markdown('<div class="title">PPE Detection Demo</div>', unsafe_allow_html=True)
 st.progress(100)
 
-path = 'C:/projects/ppe-detection-poc/model.pt'
+path = './model.pt'
 try:
     model = YOLO(path)
 except Exception as e:
@@ -45,7 +45,7 @@ selected_video = st.selectbox("Select a video for PPE detection:", video_options
 
 if selected_video:  
     st.subheader(f"Selected video: {selected_video}")
-    video_path = f'C:/projects/ppe-detection-poc/{selected_video}'
+    video_path = f'./{selected_video}'
     cap = cv2.VideoCapture(video_path)
     if not cap.isOpened():
         st.error("Error: Could not open video file!")
